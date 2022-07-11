@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sine Wave</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <h1>Sine Wave</h1>
+
+    <form class="wave">
+      <input
+        type="range"
+        id="length"
+        name="length"
+        min="-.01"
+        max=".01"
+        value=".05"
+        step=".0001"
+      />
+      <label for="length"> Wavelength</label>
+      <p id="lengthDisplay"></p>
+      <input
+        type="range"
+        id="amplitude"
+        name="amplitude"
+        min="-300"
+        max="300"
+        value="100"
+      />
+      <label for="amplitude">Amplitude</label>
+      <p id="amplitudeDisplay"></p>
+      <br />
+      <input
+        type="range"
+        id="frequency"
+        name="frequency"
+        value="1"
+        min="0.01"
+        max="2"
+        step="0.01"
+        value="0.05"
+      />
+      <label for="frequency">Frequency</label>
+      <p id="frequencyDisplay"></p>
+      <button type="submit">Create Sine Wave</button>
+    </form>
+
+    <canvas> </canvas>
+    <script src="./script.js"></script>
+  </body>
+</html>
