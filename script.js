@@ -8,18 +8,18 @@ const frequencyDisplay = document.querySelector("#frequencyDisplay");
 const form = document.querySelector("form");
 const c = canvas.getContext("2d");
 
-lengthDisplay.innerHTML = lengthInput.value;
-amplitudeDisplay.innerHTML = amplitudeInput.value;
-frequencyDisplay.innerHTML = frequencyInput.value;
+const wave = {
+  length: 0.01,
+  amplitude: 200,
+  frequency: 0.03,
+};
+
+lengthDisplay.innerHTML = wave.length;
+amplitudeDisplay.innerHTML = wave.amplitude;
+frequencyDisplay.innerHTML = wave.frequency;
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
-
-const wave = {
-  length: 0.005,
-  amplitude: 100,
-  frequency: 0.01,
-};
 
 let increment = wave.frequency;
 
@@ -40,16 +40,7 @@ function animate() {
   c.strokeStyle = "hsl(200, 50%, 60%)";
   c.stroke();
   increment += wave.frequency;
-  console.log(wave.frequency);
 }
-
-//form used to update the variables based on user input
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  wave.amplitude = Number(amplitudeInput.value);
-  wave.length = Number(lengthInput.value);
-  wave.frequency = Number(frequencyInput.value);
-});
 
 animate();
 
@@ -57,14 +48,17 @@ animate();
 function updateAmplitude() {
   var amplitude = document.querySelector("#amplitude").value;
   amplitudeDisplay.innerHTML = amplitude;
+  wave.amplitude = amplitude;
 }
 
 function updateLength() {
   var length = document.querySelector("#length").value;
   lengthDisplay.innerHTML = length;
+  wave.length = length;
 }
 
 function updateFrequency() {
   var frequency = document.querySelector("#frequency").value;
   frequencyDisplay.innerHTML = frequency;
+  wave.frequency = Number(frequency);
 }
